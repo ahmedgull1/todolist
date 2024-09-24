@@ -47,7 +47,7 @@ function Maincomponents() {
               <div className="pt-2">
 
                 <p className='font-bold text-gray-400 overflow-hidden'>
-                  - - - - - - - - - - - - - - - - - - - - - - - - - -
+                  - - - - - - - - - - - - - - - - - - - - - - - - - 
                 </p>
 
               </div>

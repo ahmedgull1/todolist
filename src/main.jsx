@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { AppProvider } from './Appcontext/context.jsx'
-import { BrowserRouter } from 'react-router-dom'
+// import { BrowserRouter } from 'react-router-dom'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* <BrowserRouter> */}
+    <HashRouter basename="/">
       <AppProvider>
         <App />
       </AppProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
+    </HashRouter>
+    {/* </BrowserRouter> */}
+  </React.StrictMode>
 )
