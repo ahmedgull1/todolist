@@ -36,7 +36,7 @@ function AppProvider({ children }) {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     const fetchUsers = async (value) => {
-        const { data } = await axios.get('http://localhost:8000/users')
+        const { data } = await axios.get('http://todolist-cj15.onrender.com/users')
 
         if (value) {
             function getDataByValue() {
@@ -76,19 +76,19 @@ function AppProvider({ children }) {
     const update_completion = async (id) => {
         let findObj = state.users.find((user) => user.id == id);
         findObj.complete = !findObj.complete
-        const { data } = await axios.put(`http://localhost:8000/users/${findObj.id}`, findObj);
+        const { data } = await axios.put(`http://todolist-cj15.onrender.com/users/${findObj.id}`, findObj);
         dispatch({ type: "TOGGLE_COMPLETE", payload: data });
     }
 
     const faverote = async (id) => {
         let findObj = state.users.find((user) => user.id == id);
         findObj.faverote = !findObj.faverote
-        const { data } = await axios.put(`http://localhost:8000/users/${findObj.id}`, findObj);
+        const { data } = await axios.put(`http://todolist-cj15.onrender.com/users/${findObj.id}`, findObj);
         dispatch({ type: "TOGGLE_FAVEROTE", payload: data })
     }
 
     const handleDelete = async (id) => {
-        await axios.delete(`http://localhost:8000/users/${id}`);
+        await axios.delete(`http://todolist-cj15.onrender.com/users/${id}`);
         console.log(id, "test");
         const filterData = state.users.filter((ele) => ele.id !== id);
         dispatch({ type: "TOGGLE_DELETE", payload: filterData })
@@ -105,7 +105,7 @@ function AppProvider({ children }) {
 
     const handleDataPost = async (data) => {
         try {
-            await axios.post(`http://localhost:8000/users`, data)
+            await axios.post(`http://todolist-cj15.onrender.com/users`, data)
             dispatch({type: 'DATA_POST'})
         } catch (error) {
             console.log(error);
